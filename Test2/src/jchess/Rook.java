@@ -79,9 +79,13 @@ public class Rook extends Piece
     {
         ArrayList list = new ArrayList();
 
-        for (int i = this.square.pozY + 1; i <= 7; ++i)
+        // Rook is now only able to go 5 steps in one turn
+        
+        //for (int i = this.square.pozY + 1; i <= 7; ++i)
+        for (int i = this.square.pozY + 1; i <= this.square.pozY + 5; ++i)
         {//up
-
+        	if(isout(this.square.pozX, i))
+        		continue;
             if (this.checkPiece(this.square.pozX, i))
             {//if on this sqhuare isn't piece
 
@@ -114,9 +118,11 @@ public class Rook extends Piece
 
         }
 
-        for (int i = this.square.pozY - 1; i >= 0; --i)
+        //for (int i = this.square.pozY - 1; i >= 0; --i)
+        for (int i = this.square.pozY - 1; i >= this.square.pozY - 5; --i)
         {//down
-
+        	if(isout(this.square.pozX, i))
+        		continue;
             if (this.checkPiece(this.square.pozX, i))
             {//if on this sqhuare isn't piece
 
@@ -148,9 +154,11 @@ public class Rook extends Piece
             }
         }
 
-        for (int i = this.square.pozX - 1; i >= 0; --i)
+        //for (int i = this.square.pozX - 1; i >= 0; --i)
+        for (int i = this.square.pozX - 1; i >= this.square.pozX - 5; --i)
         {//left
-
+        	if(isout(i, this.square.pozY))
+        		continue;
             if (this.checkPiece(i, this.square.pozY))
             {//if on this sqhuare isn't piece
 
@@ -182,9 +190,10 @@ public class Rook extends Piece
             }
         }
 
-        for (int i = this.square.pozX + 1; i <= 7; ++i)
+        for (int i = this.square.pozX + 1; i <= this.square.pozX + 5; ++i)
         {//right
-
+        	if(isout(i, this.square.pozY))
+        		continue;
             if (this.checkPiece(i, this.square.pozY))
             {//if on this sqhuare isn't piece
 
