@@ -66,8 +66,8 @@ public class Pawn extends Piece
 {
 
     boolean down;
-    protected static final Image imageWhite = GUI.loadImage("Pawn-W.png");
-    protected static final Image imageBlack = GUI.loadImage("Pawn-B.png");
+    protected static final Image imageWhite = GUI.loadImage("NewPawn-W.png");
+    protected static final Image imageBlack = GUI.loadImage("NewPawn-B.png");
     public static short value = 1;
 
     Pawn(Chessboard chessboard, Player player)
@@ -134,8 +134,9 @@ public class Pawn extends Piece
                     list.add(chessboard.squares[this.square.pozX][first]);
                 }
             }
-
-            if ((player.goDown && this.square.pozY == 1) || (!player.goDown && this.square.pozY == 6))
+            
+            // Now the pawn is always able to move 2 steps
+            // if ((player.goDown && this.square.pozY == 1) || (!player.goDown && this.square.pozY == 6))
             {
                 sq1 = chessboard.squares[this.square.pozX][second];
                 if (sq1.piece == null)
